@@ -2,10 +2,10 @@ import ReactDOM from 'react-dom';
 import RedBox from 'redbox-react';
 import React from 'react';
 
-export default function renderUi(terria, allBaseMaps, viewState) {
+export default function renderUi(terria, allBaseMaps, viewState, crimeState) {
   let render = () => {
     const UI = require('./UserInterface').default;
-    ReactDOM.render(<UI terria={terria} allBaseMaps={allBaseMaps}
+    ReactDOM.render(<UI terria={terria} allBaseMaps={allBaseMaps} crimeState={crimeState}
                         viewState={viewState}/>, document.getElementById('ui'));
   };
 

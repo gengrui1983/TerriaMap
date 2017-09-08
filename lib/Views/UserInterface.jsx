@@ -21,12 +21,17 @@ function isBrowserSupportedAV() {
     return /Android|iPhone|iPad/i.test(navigator.userAgent);
 }
 
+function _onCrimePanelButtonPressed(props) {
+    props.crimeState.openCrimePanel();
+}
+
 export default function UserInterface(props) {
     return (
         <StandardUserInterface {... props} version={version}>
             <Menu>
                 <RelatedMaps viewState={props.viewState} />
                 <MenuItem caption="About" href="about.html" key="about-link"/>
+                <MenuItem caption="CrimePanel" onClick={(e) => _onCrimePanelButtonPressed(props)}/>
             </Menu>
             <ExperimentalMenu>
                 <If condition={isBrowserSupportedAV()}>

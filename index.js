@@ -26,6 +26,7 @@ import Terria from 'terriajs/lib/Models/Terria';
 import updateApplicationOnHashChange from 'terriajs/lib/ViewModels/updateApplicationOnHashChange';
 import updateApplicationOnMessageFromParentWindow from 'terriajs/lib/ViewModels/updateApplicationOnMessageFromParentWindow';
 import ViewState from 'terriajs/lib/ReactViewModels/ViewState';
+import CrimeState from 'terriajs/lib/ReactViewModels/CrimeState';
 import BingMapsSearchProviderViewModel from 'terriajs/lib/ViewModels/BingMapsSearchProviderViewModel.js';
 import GazetteerSearchProviderViewModel from 'terriajs/lib/ViewModels/GazetteerSearchProviderViewModel.js';
 import GnafSearchProviderViewModel from 'terriajs/lib/ViewModels/GnafSearchProviderViewModel.js';
@@ -54,6 +55,10 @@ terria.welcome = '<h3>Terria<sup>TM</sup> is a spatial data platform that provid
 
 // Create the ViewState before terria.start so that errors have somewhere to go.
 const viewState = new ViewState({
+    terria: terria
+});
+
+const crimeState = new CrimeState({
     terria: terria
 });
 
@@ -132,7 +137,7 @@ terria.start({
             }
         }
 
-        render(terria, allBaseMaps, viewState);
+        render(terria, allBaseMaps, viewState, crimeState);
     } catch (e) {
         console.error(e);
         console.error(e.stack);
