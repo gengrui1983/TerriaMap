@@ -48,6 +48,15 @@ module.exports = function(devMode, hot) {
                     }
                 },
                 {
+                    test: /\.css$/,
+                    include: [path.resolve(__dirname, '..', 'node_modules', 'react-input-range')],
+                    loader:[
+                        'style-loader','css-loader',
+                        'resolve-url-loader?sourceMap',
+                        'sass-loader?sourceMap'
+                    ]
+                },
+                {
                     test: /\.scss$/,
                     include: [path.resolve(__dirname, '..', 'lib')],
                     loader: hot ? [
