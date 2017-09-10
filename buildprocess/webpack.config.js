@@ -49,7 +49,11 @@ module.exports = function(devMode, hot) {
                 },
                 {
                     test: /\.css$/,
-                    include: [path.resolve(__dirname, '..', 'node_modules', 'react-input-range')],
+                    include:
+                        [
+                            path.resolve(__dirname, '..', 'node_modules', 'react-input-range'),
+                            path.resolve(__dirname, '..', 'node_modules', 'terriajs', 'lib' , 'ReactViews'),
+                        ],
                     loader:[
                         'style-loader','css-loader',
                         'resolve-url-loader?sourceMap',
